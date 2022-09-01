@@ -85,8 +85,6 @@ function checkOrder() {
   listItems.forEach((item, index) => {
     const personName = item.querySelector('.person-name').innerText.trim();
 
-    console.log(personName);
-
     if (personName !== richestPeople[index]) {
       item.classList.add('wrong');
     } else {
