@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .badge {
+        height: 50px;
+        width: 50px;
+        background-color: #4c6ca0;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .bump {
+        animation: bump 300ms ease-out;
+      }
+
+      @keyframes bump {
+        0% {
+          transform: scale(1);
+        }
+        10% {
+          transform: scale(0.9);
+        }
+        30% {
+          transform: scale(1.1);
+        }
+        50% {
+          transform: scale(1.15);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .btn {
+        background: #4c6ca0;
+        color: #fff;
+        border: 0;
+        font-size: 1rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-family: inherit;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .btn:hover {
+        color: #f4f4f4;
+        background: #446190;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="badge">1</div>
+    <button class="btn">Add</button>
+
+    <script>
+      document.querySelector('button').addEventListener('click', () => {
+        const badge = document.querySelector('div');
+        const value = +badge.innerText;
+
+        badge.innerText = value + 1;
+        badge.classList.add('bump');
+
+        setTimeout(() => {
+          document.querySelector('div').classList.remove('bump');
+        }, 300);
+      });
+    </script>
+  </body>
+</html>
