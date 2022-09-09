@@ -51,19 +51,23 @@ body {
   background-color: #fff;
 }
 
+/* POINT: selector nth-of-type(2) */
 .seat:nth-of-type(2) {
   margin-right: 18px;
 }
 
+/* POINT: selector nth-last-of-type(2) */
 .seat:nth-last-of-type(2) {
   margin-left: 18px;
 }
 
+/* POINT: selector not */
 .seat:not(.occupied):hover {
   cursor: pointer;
   transform: scale(1.2);
 }
 
+/* POINT: selector not */
 .showcase .seat:not(.occupied):hover {
   cursor: default;
   transform: scale(1);
