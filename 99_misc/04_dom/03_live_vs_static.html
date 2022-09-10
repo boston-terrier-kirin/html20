@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <ul>
+      <li>BAM</li>
+      <li>POW</li>
+      <li>KAZAAM</li>
+    </ul>
+
+    <script>
+      // getElementsByTagName;
+      {
+        const elems = document.getElementsByTagName('li');
+        elems[0].parentNode.appendChild(document.createElement('li'));
+
+        // getElementsByTagName はliveなので、追加したliが反映される。
+        console.log('live', elems);
+      }
+
+      // querySelectorAll
+      {
+        const elems = document.querySelectorAll('li');
+        elems[0].parentNode.appendChild(document.createElement('li'));
+
+        // querySelectorAll はstaticなので、追加したliが反映されない。
+        console.log('static', elems);
+        console.log(document.querySelectorAll('li'));
+      }
+    </script>
+  </body>
+</html>

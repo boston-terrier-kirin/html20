@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      body {
+        background-color: rgb(74, 59, 206);
+      }
+      h1 {
+        color: #14fff7;
+        text-decoration: underline;
+      }
+      .message {
+        color: #14fff7;
+        font-size: 2rem;
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Am I real?</h1>
+    <div class="message">
+      this is a div
+      <p>this is a p</p>
+    </div>
+    <script>
+      const bodyElement = document.querySelector('body');
+      const divElement = document.querySelector('.message');
+
+      // trueだと子供も含めてコピーされる
+      bodyElement.appendChild(divElement.cloneNode(true));
+
+      // falseだとtextもコピーされない
+      bodyElement.appendChild(divElement.cloneNode(false));
+    </script>
+  </body>
+</html>

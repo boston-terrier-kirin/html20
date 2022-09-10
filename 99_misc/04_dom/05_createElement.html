@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      body {
+        background-color: rgb(74, 59, 206);
+      }
+      h1 {
+        color: #14fff7;
+        text-decoration: underline;
+      }
+      ul li {
+        color: #14fff7;
+        font-size: 2rem;
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Am I real?</h1>
+    <ul></ul>
+    <script>
+      // appendChild
+      {
+        const ulElement = document.querySelector('ul');
+        for (let i = 0; i < 3; i++) {
+          const newElement = document.createElement('li');
+          newElement.innerHTML = `YES ${i + 1}`;
+          ulElement.appendChild(newElement);
+        }
+      }
+
+      // insertBefore
+      {
+        const bodyElement = document.querySelector('body');
+        const pElement = document.createElement('p');
+        pElement.textContent = 'INSERT_BEFORE';
+        const scriptElement = document.querySelector('script');
+
+        /**
+         * ・親
+         * ・INSERTするELEMENT
+         * ・どこの前にINSERTするか
+         */
+        bodyElement.insertBefore(pElement, scriptElement);
+      }
+
+      // insertAfterはない
+      {
+        const bodyElement = document.querySelector('body');
+        const pElement = document.createElement('p');
+        pElement.textContent = 'INSERT_AFTER';
+        const h1Element = document.querySelector('h1');
+
+        // h1の後ろに追加したければ、h1.nextSiblingの前に追加する。
+        bodyElement.insertBefore(pElement, h1Element.nextElementSibling);
+      }
+    </script>
+  </body>
+</html>

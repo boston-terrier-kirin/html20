@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Access</title>
+    <style>
+      body {
+        text-align: center;
+      }
+
+      button {
+        cursor: pointer;
+        background-color: black;
+        color: white;
+        width: 300px;
+        padding: 1rem;
+        margin: 0.5rem;
+
+        display: block;
+        margin: 0.5rem auto;
+
+        border: none;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Test Yourself</h1>
+    <h2>getElementsByClassName()</h2>
+    <button class="green undo" onclick="green()">
+      Click to change this to green
+    </button>
+    <button class="blue undo" onclick="blue()">
+      Click to change this to blue
+    </button>
+    <button class="red undo" onclick="red()">
+      Click to change this to red
+    </button>
+    <button onclick="undo()">Undo</button>
+
+    <script>
+      function green() {
+        const elems = document.getElementsByClassName('green');
+        for (const elem of elems) {
+          elem.style.backgroundColor = 'green';
+        }
+      }
+
+      function blue() {
+        const elems = document.getElementsByClassName('blue');
+        for (const elem of elems) {
+          elem.style.backgroundColor = 'blue';
+        }
+      }
+
+      function red() {
+        const elems = document.getElementsByClassName('red');
+        for (const elem of elems) {
+          elem.style.backgroundColor = 'red';
+        }
+      }
+
+      function undo() {
+        const elems = document.getElementsByClassName('undo');
+        for (const elem of elems) {
+          elem.style.backgroundColor = 'black';
+        }
+      }
+    </script>
+  </body>
+</html>

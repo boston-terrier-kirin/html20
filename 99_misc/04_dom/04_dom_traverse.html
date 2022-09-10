@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        border: 2px solid #dedede;
+        padding: 1rem;
+        margin: 1rem;
+      }
+      body {
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Welcome</h1>
+      <div id="wrapper">
+        <!-- This is a comment node -->
+        <h2 class="sub-heading">Traversing the DOM</h2>
+        <p>How do we do it?</p>
+        <p>Stick around, and I'll show you</p>
+      </div>
+      <div id="wrapper-2">
+        <h2 class="joke">Joke of the day</h2>
+        <p>What do you call fish with no eyes? ... Fsh</p>
+      </div>
+      <ul>
+        <!-- コメント -->
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+      </ul>
+    </main>
+
+    <script>
+      const wrapper = document.querySelector('#wrapper');
+
+      console.log(
+        'wrapper.parentNode.parentNode',
+        wrapper.parentNode.parentNode
+      );
+
+      // *Element：HTMLCollection
+      // *Node：textも含めたすべてのnode
+
+      // nextSibling だと、改行が取れてしまう。
+      console.log('wrapper.nextSibling', wrapper.nextSibling);
+
+      // nextElementSibling だと、wrapper-2 が取れる。
+      console.log('wrapper.nextElementSibling', wrapper.nextElementSibling);
+
+      // firstChild だと、改行が取れてしまう。
+      console.log('wrapper.firstChild', wrapper.firstChild);
+
+      // firstElementChild だと、h2が取れる。
+      console.log('wrapper.firstElementChild', wrapper.firstElementChild);
+
+      // childNodes だと、改行が取れてしまう。コメントも取れている。
+      console.log('wrapper.childNodes', wrapper.childNodes);
+
+      // chilren だと、改行は入ってこない。
+      console.log('wrapper.children', wrapper.children);
+
+      console.log('-----');
+      const h1 = document.querySelector('h1');
+      console.log('h1.firstChild', h1.firstChild);
+      console.log('h1.lastChild', h1.lastChild);
+      console.log('h1.firstElementChild', h1.firstElementChild);
+
+      const ul = document.querySelector('ul');
+      for (const li of ul.children) {
+        li.style.border = '5px solid blue';
+      }
+    </script>
+  </body>
+</html>

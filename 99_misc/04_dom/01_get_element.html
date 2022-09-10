@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessing Elements</title>
+  </head>
+  <body>
+    <h1 id="main">Accessing Elements</h1>
+    <!-- section 1 -->
+    <h2>Using the ID (#header)</h2>
+    <div id="header">Access this by using getElementById()</div>
+
+    <!-- section 2 -->
+    <h2>Using the Class (.header)</h2>
+    <div class="header">1. Access this by using getElementsByClassName()</div>
+    <div class="header">2. Access this by using getElementsByClassName()</div>
+
+    <!-- section 3 -->
+    <h2>Using the Tag (p tag)</h2>
+    <p>1. Access this by using getElementsByTagName()</p>
+    <p>2. Access this by using getElementsByTagName()</p>
+
+    <!-- section 4 -->
+    <h2>Using the Query Selector (with id of 'query')</h2>
+    <div id="query">1. Access this by using querySelector()</div>
+
+    <!-- section 5 -->
+    <h2>Using the Query Selector All (with id of 'query-all')</h2>
+    <div class="query-all">1. Access this by using querySelectorAll()</div>
+    <div class="query-all">2. Access this by using querySelectorAll()</div>
+
+    <script>
+      // getElementById
+      {
+        const elem = document.getElementById('header');
+        elem.style.backgroundColor = 'rgb(132, 173, 254)';
+      }
+
+      // getElementsByClassName
+      {
+        const elems = document.getElementsByClassName('header');
+
+        // HTMLCollection
+        console.log(elems);
+
+        // ループはできるが、配列ではない
+        for (const elem of elems) {
+          console.log(elem);
+        }
+
+        // これはできない
+        try {
+          elems.slice(0, 1);
+        } catch (error) {
+          console.log(error.message);
+        }
+      }
+
+      // getElementsByTagName
+      {
+        const elems = document.getElementsByTagName('p');
+
+        // HTMLCollection
+        console.log(elems);
+      }
+
+      // querySelector
+      {
+        const elem = document.querySelector('#query');
+        console.dir(elem);
+      }
+
+      // querySelectorAll
+      {
+        const elems = document.querySelectorAll('.query-all');
+
+        // NodeList
+        console.dir(elems);
+
+        // ループはできるが、配列ではない
+        for (const elem of elems) {
+          console.log(elem);
+        }
+
+        // forEachはできる
+        elems.forEach((elem) => console.log(elem));
+
+        // これはできない
+        try {
+          elems.slice(0, 1);
+        } catch (error) {
+          console.log(error.message);
+        }
+      }
+    </script>
+  </body>
+</html>

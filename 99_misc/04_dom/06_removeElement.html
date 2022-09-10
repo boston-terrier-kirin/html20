@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      body {
+        background-color: rgb(74, 59, 206);
+      }
+      h1 {
+        color: #14fff7;
+        text-decoration: underline;
+      }
+      p,
+      li,
+      div {
+        color: #14fff7;
+        font-size: 2rem;
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Am I real?</h1>
+    <ul>
+      <li>one</li>
+      <li>two</li>
+      <li>threes</li>
+    </ul>
+    <div>this is a div</div>
+    <script>
+      const bodyElement = document.querySelector('body');
+      const newElement = document.createElement('p');
+      newElement.textContent = 'Or am I a figment of your imagination?';
+
+      // 親がわかっている場合、親から削除
+      bodyElement.appendChild(newElement);
+      bodyElement.removeChild(newElement);
+
+      // 親がわからない場合、parentNodeから削除
+      const liElement = document.querySelector('ul');
+      liElement.parentNode.removeChild(liElement);
+
+      // 新方式。親に頼らなくてもOK
+      document.querySelector('div').remove();
+    </script>
+  </body>
+</html>
