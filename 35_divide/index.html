@@ -20,12 +20,22 @@
   <body>
     <div class="container">
       <div class="row">
+        <div class="col-5 d-flex align-items-center">
+          <h3 class="display-6 d-inline me-2">Group#1</h3>
+          <span class="badge rounded-pill bg-primary" id="group-1-count"
+            >0</span
+          >
+        </div>
+        <div class="col-2"></div>
+        <div class="col-5 d-flex align-items-center">
+          <h3 class="display-6 d-inline me-2">Group#2</h3>
+          <span class="badge rounded-pill bg-primary" id="group-2-count"
+            >0</span
+          >
+        </div>
+      </div>
+      <div class="row">
         <div class="col-5">
-          <h3>
-            <span class="badge rounded-pill bg-primary" id="group-1-count"
-              >0</span
-            >
-          </h3>
           <ul id="group-1" class="list-group">
             <li class="list-group-item d-flex justify-content-between">
               <span>001</span><i class="bi bi-check-circle-fill invisible"></i>
@@ -45,24 +55,46 @@
             <li class="list-group-item d-flex justify-content-between">
               <span>006</span><i class="bi bi-check-circle-fill invisible"></i>
             </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>007</span><i class="bi bi-check-circle-fill invisible"></i>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>008</span><i class="bi bi-check-circle-fill invisible"></i>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>009</span><i class="bi bi-check-circle-fill invisible"></i>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>010</span><i class="bi bi-check-circle-fill invisible"></i>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>011</span><i class="bi bi-check-circle-fill invisible"></i>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>012</span><i class="bi bi-check-circle-fill invisible"></i>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>013</span><i class="bi bi-check-circle-fill invisible"></i>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>014</span><i class="bi bi-check-circle-fill invisible"></i>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>015</span><i class="bi bi-check-circle-fill invisible"></i>
+            </li>
           </ul>
         </div>
         <div
           class="col-2 d-flex flex-column justify-content-center align-items-center"
         >
-          <button id="move-to-right" class="btn btn-primary mb-3">
+          <button id="move-to-right" class="btn btn-outline-primary mb-3">
             右へ <i class="bi bi-arrow-bar-right"></i>
           </button>
-          <button id="move-to-left" class="btn btn-primary">
+          <button id="move-to-left" class="btn btn-outline-primary">
             <i class="bi bi-arrow-bar-left"></i> 左へ
           </button>
         </div>
         <div class="col-5">
-          <h3>
-            <span class="badge rounded-pill bg-primary" id="group-2-count"
-              >0</span
-            >
-          </h3>
           <ul class="list-group" id="group-2"></ul>
         </div>
       </div>
