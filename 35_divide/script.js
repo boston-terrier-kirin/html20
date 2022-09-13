@@ -52,7 +52,7 @@ function moveChildren(from, to, className) {
     for (const child of to.children) {
       child.classList.remove(className);
     }
-  }, 500);
+  }, 750);
 }
 
 function updateChildrenCount() {
