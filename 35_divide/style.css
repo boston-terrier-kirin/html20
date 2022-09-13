@@ -1,0 +1,38 @@
+body {
+  padding: 2rem;
+}
+
+.selected {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.added {
+  background-color: #fef9c3;
+}
+
+.list-group-item {
+  transition: all 0.3s ease;
+}
+
+.bump {
+  animation: bump 300ms ease-out;
+}
+
+@keyframes bump {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(0.9);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

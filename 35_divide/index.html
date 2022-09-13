@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-5">
+          <h3>
+            <span class="badge rounded-pill bg-primary" id="group-1-count"
+              >0</span
+            >
+          </h3>
+          <ul id="group-1" class="list-group">
+            <li class="list-group-item">001</li>
+            <li class="list-group-item">002</li>
+            <li class="list-group-item">003</li>
+            <li class="list-group-item">004</li>
+            <li class="list-group-item">005</li>
+            <li class="list-group-item">006</li>
+          </ul>
+        </div>
+        <div
+          class="col-2 d-flex flex-column justify-content-center align-items-center"
+        >
+          <button id="move-to-right" class="btn btn-primary mb-3">
+            右へ <i class="bi bi-arrow-bar-right"></i>
+          </button>
+          <button id="move-to-left" class="btn btn-primary">
+            <i class="bi bi-arrow-bar-left"></i> 左へ
+          </button>
+        </div>
+        <div class="col-5">
+          <h3>
+            <span class="badge rounded-pill bg-primary" id="group-2-count"
+              >0</span
+            >
+          </h3>
+          <ul class="list-group" id="group-2"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
