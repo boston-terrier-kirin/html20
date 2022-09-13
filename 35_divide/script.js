@@ -8,29 +8,32 @@ updateChildrenCount();
 group1.addEventListener('click', (e) => {
   const elem = e.target;
   elem.classList.toggle('selected');
+  elem.querySelector('i').classList.toggle('invisible');
 });
 
 group2.addEventListener('click', (e) => {
   const elem = e.target;
   elem.classList.toggle('selected');
+  elem.querySelector('i').classList.toggle('invisible');
 });
 
 moveToRight.addEventListener('click', () => {
-  moveChildren(group1, group2);
+  moveChildren(group1, group2, 'move-to-right');
 });
 
 moveToLeft.addEventListener('click', () => {
-  moveChildren(group2, group1);
+  moveChildren(group2, group1, 'move-to-left');
 });
 
-function moveChildren(from, to) {
+function moveChildren(from, to, className) {
   let moveCount = 0;
   const childrenToRemove = [];
   for (const child of from.children) {
     if (child.classList.contains('selected')) {
       const newChild = child.cloneNode(true);
       newChild.classList.remove('selected');
-      newChild.classList.add('added');
+      newChild.querySelector('i').classList.add('invisible');
+      newChild.classList.add(className);
       to.appendChild(newChild);
 
       childrenToRemove.push(child);
@@ -47,9 +50,9 @@ function moveChildren(from, to) {
 
   setTimeout(() => {
     for (const child of to.children) {
-      child.classList.remove('added');
+      child.classList.remove(className);
     }
-  }, 1000);
+  }, 500);
 }
 
 function updateChildrenCount() {
