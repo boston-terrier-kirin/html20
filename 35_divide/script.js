@@ -1,9 +1,20 @@
+const save = document.querySelector('#save');
 const group1 = document.querySelector('#group-1');
 const group2 = document.querySelector('#group-2');
 const moveToRight = document.querySelector('#move-to-right');
 const moveToLeft = document.querySelector('#move-to-left');
 
 updateChildrenCount();
+
+save.addEventListener('click', (e) => {
+  for (const child of group1.children) {
+    console.log(child.textContent.trim());
+  }
+  console.log('----------');
+  for (const child of group2.children) {
+    console.log(child.textContent.trim());
+  }
+});
 
 group1.addEventListener('click', (e) => {
   const elem = e.target;
