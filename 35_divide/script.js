@@ -59,6 +59,7 @@ function moveChildren(from, to, className) {
   childrenToRemove.forEach((child) => child.remove());
   updateChildrenCount();
 
+  // 念のため消す
   setTimeout(() => {
     for (const child of to.children) {
       child.classList.remove(className);
