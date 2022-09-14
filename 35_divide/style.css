@@ -46,6 +46,9 @@ body {
 }
 
 @keyframes move-right {
+  0% {
+    transform: translateX(-50%);
+  }
   30% {
     background-color: #fef9c3;
     transform: translateX(10px);
@@ -64,6 +67,9 @@ body {
 }
 
 @keyframes move-left {
+  0% {
+    transform: translateX(50%);
+  }
   30% {
     background-color: #fef9c3;
     transform: translateX(-10px);
