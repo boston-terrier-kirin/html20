@@ -58,11 +58,10 @@ body {
     transform: translateX(-5px);
   }
   70% {
-    transform: translateX(0px);
+    transform: translateX(0);
   }
   100% {
     background-color: #fff;
-    transform: translateX(0);
   }
 }
 
@@ -79,11 +78,10 @@ body {
     transform: translateX(-5px);
   }
   80% {
-    transform: translateX(0px);
+    transform: translateX(0);
   }
   100% {
     background-color: #fff;
-    transform: translateX(0);
   }
 }
 
