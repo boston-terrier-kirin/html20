@@ -37,29 +37,26 @@ moveToLeft.addEventListener('click', () => {
 });
 
 function moveChildren(from, to, className) {
-  let moveCount = 0;
-  const childrenToRemove = [];
-  for (const child of from.children) {
-    if (child.classList.contains('selected')) {
-      const newChild = child.cloneNode(true);
-      newChild.classList.remove('selected');
-      newChild.querySelector('i').classList.add('invisible');
-      newChild.classList.add(className);
-      to.appendChild(newChild);
+  const selectedChildren = Array.from(from.children).filter((child) =>
+    child.classList.contains('selected')
+  );
 
-      childrenToRemove.push(child);
-      moveCount++;
-    }
-  }
-
-  if (moveCount === 0) {
+  if (selectedChildren.length === 0) {
     return;
   }
 
-  childrenToRemove.forEach((child) => child.remove());
+  selectedChildren.forEach((child) => {
+    const newChild = child.cloneNode(true);
+    newChild.classList.remove('selected');
+    newChild.querySelector('i').classList.add('invisible');
+    newChild.classList.add(className);
+    to.appendChild(newChild);
+  });
+
+  selectedChildren.forEach((child) => child.remove());
   updateChildrenCount();
 
-  // 念のため消す
+  // 念のためcssを消す
   setTimeout(() => {
     for (const child of to.children) {
       child.classList.remove(className);
