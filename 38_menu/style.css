@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --left-side-menu-width: 260px;
+  --navbar-height: 50px;
+}
+
+/* 左メニュー */
+.left-side-menu {
+  position: fixed;
+  top: var(--navbar-height);
+  left: 0;
+  overflow-y: scroll;
+
+  width: var(--left-side-menu-width);
+  height: 100vh;
+  border-right: 1px solid #e5e7eb;
+  padding: 1rem;
+}
+
+.left-side-menu.close {
+  display: none;
+}
+
+/* navbar */
+.custom-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  height: var(--navbar-height);
+  padding: 0 1rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.custom-navbar.close {
+  margin-left: 0;
+}
+
+.custom-navbar .logo {
+  text-decoration: none;
+  color: #f3f4f6;
+  font-size: 1.2rem;
+}
+
+/* navbar humburger */
+.custom-navbar .humburger {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-navbar .humburger:active {
+  border-radius: 50%;
+  background-color: #6b7280;
+}
+
+.custom-navbar .humburger > div {
+  position: relative;
+  width: 1.5rem;
+  height: 2px;
+  background-color: #f3f4f6;
+}
+
+.custom-navbar .humburger:active > div,
+.custom-navbar .humburger:active > div::before,
+.custom-navbar .humburger:active > div::after {
+  width: 1.2rem;
+}
+
+.custom-navbar .humburger > div::before,
+.custom-navbar .humburger > div::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+
+  width: 1.5rem;
+  height: 2px;
+  background-color: #f3f4f6;
+}
+
+.custom-navbar .humburger > div::after {
+  top: 10px;
+}
+
+/* content-wrapper */
+.content-wrapper {
+  padding: 1rem 1rem;
+  margin-top: var(--navbar-height);
+  margin-left: var(--left-side-menu-width);
+  min-height: calc(100vh - var(--navbar-height));
+}
+
+.content-wrapper.close {
+  margin-left: 0;
+}
