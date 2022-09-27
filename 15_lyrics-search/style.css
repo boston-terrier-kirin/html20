@@ -38,7 +38,7 @@ header {
   color: #fff;
 }
 
-/* POINT：overlay */
+/* POINT：overlay, オーバーレイ */
 header::before {
   content: '';
   position: absolute;
