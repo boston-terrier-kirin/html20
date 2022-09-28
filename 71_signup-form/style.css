@@ -92,7 +92,10 @@ html {
 
   width: 16rem;
   height: 5rem;
+
+  /* POINT：transparent, 背景色と同じ色のボタンにしたい場合、transparentを使う */
   background-color: transparent;
+
   border: 0.1rem solid #fff;
   border-radius: 3rem;
   text-transform: uppercase;
