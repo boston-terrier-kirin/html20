@@ -40,6 +40,8 @@
     <script>
       const wrapper = document.querySelector('#wrapper');
 
+      // parentElementとparentNodeは通常同じ。親になれるのはHTML要素のみなので。
+      console.log('wrapper.parentElement', wrapper.parentElement);
       console.log(
         'wrapper.parentNode.parentNode',
         wrapper.parentNode.parentNode
@@ -53,6 +55,10 @@
 
       // nextElementSibling だと、wrapper-2 が取れる。
       console.log('wrapper.nextElementSibling', wrapper.nextElementSibling);
+      console.log(
+        'wrapper.previousElementSibling',
+        wrapper.previousElementSibling
+      );
 
       // firstChild だと、改行が取れてしまう。
       console.log('wrapper.firstChild', wrapper.firstChild);
