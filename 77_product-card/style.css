@@ -27,6 +27,7 @@ html {
   justify-content: center;
   align-items: center;
 
+  /* POINT：画面の外に出すのではなくoverflowで隠す */
   overflow: hidden;
 }
 
@@ -48,6 +49,8 @@ html {
   transition: background-color 0.5s;
 }
 
+/* POINT：IF文 */
+/* changeがついたら色を変える */
 .container.change .card-top {
   background-color: #d35246;
 }
@@ -76,6 +79,8 @@ html {
   transition: transform 1s;
 }
 
+/* POINT：IF文 */
+/* changeがついたら画面の外から戻ってくる */
 .container.change .shoe-1 {
   transform: translateX(-100rem) rotateZ(45deg);
 }
@@ -88,6 +93,8 @@ html {
   transition: transform 1s;
 }
 
+/* POINT：IF文 */
+/* changeがついたら画面の外にいく */
 .container.change .shoe-2 {
   transform: translateX(-90rem) rotateZ(-35deg);
 }
@@ -224,6 +231,8 @@ html {
   font-size: 2rem;
 }
 
+/* POINT：IF文 */
+/* changeがついたら色を変える */
 .container.change .price {
   background-color: #c02244;
 }
