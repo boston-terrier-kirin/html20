@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'EB Garamond' serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+}
+
+.banner {
+  width: 100%;
+  position: absolute;
+  top: 35%;
+}
+
+.banner-text {
+  text-align: center;
+  font-size: 7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-item {
+  margin-top: 2rem;
+  text-align: center;
+  width: 26vm;
+}
+
+.nav-link {
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #245f9b;
+  letter-spacing: 0.1rem;
+}
+
+.dropdown {
+  margin-top: 1rem;
+  background-color: #f3f4f6;
+
+  position: relative;
+  z-index: 100;
+
+  /* POINT：height:0 */
+  /* height:0 にしないと、nav-link以外をhoverしてもメニューが開いてしまう */
+  opacity: 0;
+  visibility: hidden;
+  height: 0;
+
+  transition: all 0.5s;
+}
+
+.nav-item:hover .dropdown {
+  /* nav-itemをhoverしたら、dropdownを表示する */
+  opacity: 1;
+  visibility: visible;
+  height: auto;
+}
+
+.dropdown-item {
+  text-align: left;
+  padding: 2rem 2rem 0 2rem;
+}
+
+.dropdown-item:last-child {
+  padding-bottom: 2rem;
+}
+
+.dropdown-link {
+  font-size: 1.6rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #245f9b;
+}
+
+.dropdown p {
+  font-size: 1.4rem;
+}
+
+.dropdown-bg {
+  background-color: #f3f4f6;
+  border-radius: 0.3rem;
+  position: absolute;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: all 0.3s;
+}
+
+.dropdown-bg::before {
+  content: '';
+  position: absolute;
+
+  /* POINT：角, 三角形 */
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  border-bottom: 1rem solid #f3f4f6;
+
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
