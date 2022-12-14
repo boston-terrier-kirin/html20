@@ -32,6 +32,10 @@
   border: 27px solid #fff;
   border-radius: 50%;
 
+  /* border: 27px にしているのでcircleは枠が太いドーナッツになっている */
+  /* backgroundをつければ、中の小さなドットをなくせる */
+  /* background-color: #fff; */
+
   position: absolute;
   top: -4px;
   left: -5px;
