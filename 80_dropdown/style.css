@@ -10,9 +10,8 @@ html {
   font-size: 62.5%;
 }
 
-.wrapper {
-  width: 100%;
-  height: 100vh;
+.container {
+  padding: 1rem;
 }
 
 .banner {
@@ -39,6 +38,15 @@ html {
   width: 26vm;
 }
 
+.nav-item:hover .dropdown {
+  /* POINT：IF文 */
+  /* nav-itemをhoverしたら、dropdownを表示する */
+  opacity: 1;
+  visibility: visible;
+  /* heightをautoにする */
+  height: auto;
+}
+
 .nav-link {
   font-size: 2rem;
   font-weight: 600;
@@ -49,7 +57,8 @@ html {
 
 .dropdown {
   margin-top: 1rem;
-  background-color: #f3f4f6;
+  background-color: #e4e4e7;
+  border-radius: 2rem;
 
   position: relative;
   z-index: 100;
@@ -60,14 +69,23 @@ html {
   visibility: hidden;
   height: 0;
 
-  transition: all 0.5s;
+  transition: all 0.5s 0.1s;
 }
 
-.nav-item:hover .dropdown {
-  /* nav-itemをhoverしたら、dropdownを表示する */
-  opacity: 1;
-  visibility: visible;
-  height: auto;
+.dropdown::before {
+  content: '';
+  position: absolute;
+
+  /* POINT：角, 三角形 */
+  border-left: 1rem solid transparent;
+  border-right: 1rem solid transparent;
+  border-bottom: 1.2rem solid #e4e4e7;
+
+  top: 0;
+  left: 50%;
+
+  /* POINT：y=-100%で、親要素のちょうど上になる */
+  transform: translate(-50%, -100%);
 }
 
 .dropdown-item {
@@ -88,29 +106,4 @@ html {
 
 .dropdown p {
   font-size: 1.4rem;
-}
-
-.dropdown-bg {
-  background-color: #f3f4f6;
-  border-radius: 0.3rem;
-  position: absolute;
-
-  opacity: 0;
-  visibility: hidden;
-
-  transition: all 0.3s;
-}
-
-.dropdown-bg::before {
-  content: '';
-  position: absolute;
-
-  /* POINT：角, 三角形 */
-  border-left: 1rem solid transparent;
-  border-right: 1rem solid transparent;
-  border-bottom: 1rem solid #f3f4f6;
-
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, -100%);
 }
