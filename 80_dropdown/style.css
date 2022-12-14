@@ -14,64 +14,48 @@ html {
   padding: 1rem;
 }
 
-.banner {
-  width: 100%;
-  position: absolute;
-  top: 35%;
-}
-
-.banner-text {
-  text-align: center;
-  font-size: 7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
+.navbar {
+  position: relative;
 }
 
 .nav-list {
   display: flex;
-  justify-content: center;
 }
 
 .nav-item {
-  margin-top: 2rem;
   text-align: center;
-  width: 26vm;
 }
 
 .nav-item:hover .dropdown {
   /* POINT：IF文 */
-  /* nav-itemをhoverしたら、dropdownを表示する */
+  /* nav-itemをhoverしたら、nav-itemの配下のdropdownを表示する */
   opacity: 1;
   visibility: visible;
-  /* heightをautoにする */
-  height: auto;
 }
 
 .nav-link {
   font-size: 2rem;
   font-weight: 600;
-  text-transform: uppercase;
-  color: #245f9b;
   letter-spacing: 0.1rem;
 }
 
 .dropdown {
-  margin-top: 1rem;
-  background-color: #e4e4e7;
-  border-radius: 2rem;
+  padding: 1rem 0;
+  background-color: #3b82f6;
+  border-radius: 1rem;
 
-  position: relative;
-  z-index: 100;
+  /* POINT：top: 100%で、親要素のちょうど下になる */
+  position: absolute;
+  top: 100%;
+  left: 0;
 
-  /* POINT：height:0 */
-  /* height:0 にしないと、nav-link以外をhoverしてもメニューが開いてしまう */
   opacity: 0;
   visibility: hidden;
-  height: 0;
 
-  transition: all 0.5s 0.1s;
+  transition: all 0.3s;
 }
 
+/* TODO：角をちょうどよい場所にはやすのは難しい */
 .dropdown::before {
   content: '';
   position: absolute;
@@ -79,7 +63,7 @@ html {
   /* POINT：角, 三角形 */
   border-left: 1rem solid transparent;
   border-right: 1rem solid transparent;
-  border-bottom: 1.2rem solid #e4e4e7;
+  border-bottom: 1.2rem solid #3b82f6;
 
   top: 0;
   left: 50%;
@@ -90,18 +74,21 @@ html {
 
 .dropdown-item {
   text-align: left;
-  padding: 2rem 2rem 0 2rem;
+  padding: 0.5rem 2rem;
+  border-left: 4px solid #3b82f6;
+
+  transition: all 0.3s;
 }
 
-.dropdown-item:last-child {
-  padding-bottom: 2rem;
+.dropdown-item:hover {
+  background-color: #2563eb;
+  border-left: 4px solid #60a5fa;
 }
 
 .dropdown-link {
   font-size: 1.6rem;
   font-weight: 900;
-  text-transform: uppercase;
-  color: #245f9b;
+  color: #dbeafe;
 }
 
 .dropdown p {
