@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,300&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f4f4f4;
+}
+
+#navbar ul {
+  list-style: none;
+}
+
+#navbar ul li {
+  color: #333;
+  display: inline-block;
+  padding: 1rem;
+  position: relative;
+}
+
+#navbar ul li a {
+  color: #333;
+  text-decoration: none;
+}
+
+/* ネストしたulを隠す */
+#navbar ul li ul {
+  display: none;
+  /* visibility: hidden;
+  opacity: 0; */
+}
+
+#navbar ul li:hover {
+  cursor: pointer;
+  background-color: coral;
+  color: #fff;
+}
+
+#navbar ul li:hover a {
+  color: #fff;
+}
+
+/* ネストしたulを表示 */
+#navbar ul li:hover ul {
+  width: 200px;
+
+  display: block;
+
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+
+/* ネストしたulを表示 -> その下のli */
+#navbar ul li:hover ul li {
+  display: block;
+  background-color: #e7e7e7;
+}
+
+#navbar ul li:hover ul li a {
+  color: #333;
+}
+
+#navbar ul li:hover ul li:hover {
+  background-color: #e0e0e0;
+}
+
+#navbar ul li:hover ul li span {
+  float: right;
+  color: #fff;
+  background-color: coral;
+  padding: 0.2rem 0.5rem;
+  text-align: center;
+  font-size: 0.8rem;
+  border-radius: 5px;
+}
+
+#navbar ul li:hover ul li:hover span {
+  background-color: chocolate;
+}
+
+#showcase {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: coral;
+}
+
+@media (max-width: 600px) {
+  #navbar ul li {
+    display: block;
+  }
+
+  #navbar ul li:hover ul {
+    width: 100%;
+    position: relative;
+  }
+}
