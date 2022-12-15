@@ -7,3 +7,9 @@ menuIcon.addEventListener('click', () => {
   navbar.classList.toggle('change');
   overlay.classList.toggle('change');
 });
+
+overlay.addEventListener('click', () => {
+  menuIcon.classList.toggle('change');
+  navbar.classList.toggle('change');
+  overlay.classList.toggle('change');
+});
