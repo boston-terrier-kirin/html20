@@ -18,10 +18,12 @@
   height: 100vh;
   border-right: 1px solid #e5e7eb;
   padding: 1rem;
+
+  transition: all 0.3s;
 }
 
 .left-side-menu.close {
-  display: none;
+  left: -300px;
 }
 
 /* navbar */
@@ -37,10 +39,6 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-
-.custom-navbar.close {
-  margin-left: 0;
 }
 
 .custom-navbar .logo {
@@ -61,7 +59,7 @@
   transition: all 0.3s ease-in-out;
 }
 
-.custom-navbar .humburger:active {
+.custom-navbar .humburger:hover {
   border-radius: 50%;
   background-color: #6b7280;
 }
@@ -101,6 +99,8 @@
   margin-top: var(--navbar-height);
   margin-left: var(--left-side-menu-width);
   min-height: calc(100vh - var(--navbar-height));
+
+  transition: all 0.3s;
 }
 
 .content-wrapper.close {
