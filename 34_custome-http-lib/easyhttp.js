@@ -12,7 +12,7 @@ class EasyHttp {
     return new Promise((resolve, reject) => {
       fetch(url, {
         method: 'POST',
-        heaers: {
+        headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
@@ -27,7 +27,7 @@ class EasyHttp {
     return new Promise((resolve, reject) => {
       fetch(url, {
         method: 'PUT',
-        heaers: {
+        headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
@@ -42,7 +42,7 @@ class EasyHttp {
     return new Promise((resolve, reject) => {
       fetch(url, {
         method: 'DELETE',
-        heaers: {
+        headers: {
           'Content-Type': 'application/json',
         },
       })

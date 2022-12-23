@@ -6,6 +6,7 @@ class EasyHttp {
   }
 
   async post(url, body) {
+    console.log('body', body);
     const res = await fetch(url, {
       method: 'POST',
       headers: {
@@ -43,3 +44,5 @@ class EasyHttp {
     return data;
   }
 }
+
+export const http = new EasyHttp();
