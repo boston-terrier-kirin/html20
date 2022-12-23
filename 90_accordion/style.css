@@ -30,6 +30,8 @@ body {
   column-gap: 24px;
   row-gap: 24px;
   align-items: center;
+
+  transition: all 0.3s;
 }
 
 .title {
@@ -40,6 +42,7 @@ body {
 
 .text {
   margin-right: auto;
+  cursor: pointer;
 }
 
 .number,
@@ -49,10 +52,12 @@ body {
 }
 
 .number {
+  cursor: pointer;
   color: #ced4da;
 }
 
 .icon {
+  cursor: pointer;
   width: 24px;
   height: 24px;
   stroke: #343a40;

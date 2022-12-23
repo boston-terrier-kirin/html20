@@ -6,6 +6,10 @@ accordion.addEventListener('click', (event) => {
   const parent = elem.parentElement;
 
   if (parent.classList.contains('item')) {
-    event.target.parentElement.classList.toggle('open');
+    parent.classList.toggle('open');
+  }
+
+  if (elem.classList.contains('item')) {
+    elem.classList.toggle('open');
   }
 });
