@@ -18,7 +18,7 @@ body {
 .accordion {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
 }
 
 .item {
@@ -66,6 +66,7 @@ body {
 .hidden-box {
   grid-column: 2 / 3;
   display: none;
+  animation: bump 0.3s ease-out;
 }
 
 .hidden-box p {
@@ -93,4 +94,13 @@ body {
 .open .number,
 .open .text {
   color: #087f5b;
+}
+
+@keyframes bump {
+  0% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translate(0);
+  }
 }
