@@ -31,6 +31,43 @@ class UI {
     this.posts.innerHTML = output;
   }
 
+  fillForm(data) {
+    this.idInput.value = data.id;
+    this.titleInput.value = data.title;
+    this.bodyInput.value = data.body;
+    this.changeFormState('edit');
+  }
+
+  changeFormState(state) {
+    if (state === 'edit') {
+      this.submitBtn.textContent = 'Update Post';
+      this.submitBtn.className = 'post-submit btn btn-warning btn-block';
+
+      const button = document.createElement('button');
+      button.className = 'post-cancel btn btn-light btn-block mt-2';
+      button.textContent = 'Cancel Edit';
+
+      const cardForm = document.querySelector('.card-form');
+      const formEnd = document.querySelector('.form-end');
+      cardForm.insertBefore(button, formEnd);
+    } else {
+      this.submitBtn.textContent = 'Post It';
+      this.submitBtn.className = 'post-submit btn btn-primary btn-block';
+
+      const cancelBtn = document.querySelector('.post-cancel');
+      if (cancelBtn) {
+        cancelBtn.remove();
+      }
+
+      this.clearIdInput();
+      this.clearFields();
+    }
+  }
+
+  clearIdInput() {
+    this.idInput.value = '';
+  }
+
   showAlert(message, className) {
     this.clearAlert();
 

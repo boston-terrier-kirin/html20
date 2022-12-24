@@ -6,7 +6,6 @@ class EasyHttp {
   }
 
   async post(url, body) {
-    console.log('body', body);
     const res = await fetch(url, {
       method: 'POST',
       headers: {
