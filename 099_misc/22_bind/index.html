@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      'use strict';
+
+      function hello() {
+        console.log('こんにちは、' + this.name);
+      }
+      const yamada = { name: 'yamada' };
+
+      //bindの場合は、事前にbindしておいて、後で呼び出す。
+      const bindYamada = hello.bind(yamada);
+
+      bindYamada();
+      bindYamada();
+
+      // hello.bind(yamada)をやるだけではダメで、戻ってきたbindYamadaを使う必要がある。
+      // なので、this.drive = this.drive.bind(this); こういう使い方になる。
+    </script>
+  </body>
+</html>

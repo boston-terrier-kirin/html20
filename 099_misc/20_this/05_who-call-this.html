@@ -23,7 +23,7 @@
           checkOther();
 
           // 左側がないのでwindowになり、window.nameになっている。
-          console.log('this.name', this.name);
+          console.log('this.name', this.name); // undefined
           console.log('window.name', window.name);
         },
       };
@@ -50,6 +50,52 @@
       };
 
       test2.checkThis();
+      console.log('---------------');
+    </script>
+
+    <script>
+      // call/applyで解決する
+      const test3 = {
+        checkThis: function () {
+          console.log('checkThis', this);
+
+          function checkOther() {
+            this.name = 'Hello';
+            console.log('checkOther', this);
+          }
+
+          // call(this)で、checkOtherのthisがcheckThisになる。
+          // func.call(thisArg, arg1, arg2, ...)
+          checkOther.call(this);
+
+          console.log('this.name', this.name);
+        },
+      };
+
+      test3.checkThis();
+      console.log('---------------');
+    </script>
+
+    <script>
+      // bindで解決する
+      const test4 = {
+        checkThis: function () {
+          console.log('checkThis', this);
+
+          // checkOtherを宣言した時点でcheckOtherのthisをcheckThisに固定する。
+          const checkOther = function () {
+            this.name = 'Hello';
+            console.log('checkOther', this);
+          }.bind(this);
+
+          checkOther();
+
+          console.log('this.name', this.name);
+        },
+      };
+
+      test3.checkThis();
+      console.log('---------------');
     </script>
   </body>
 </html>

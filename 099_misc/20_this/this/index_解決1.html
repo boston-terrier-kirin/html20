@@ -11,7 +11,11 @@
       class Car {
         constructor() {
           // driveをCarにbindしておくことで解決する。
+          // どう呼び出されてもOKなように、この時点でdrive関数のthisをCarに固定しておく。
           this.drive = this.drive.bind(this);
+
+          // this.drive.bind(this) だけではダメで、this.driveに戻りをセットする必要があるので、
+          // this.drive = this.drive.bind(this); になる。
         }
 
         setDriveSound(sound) {
