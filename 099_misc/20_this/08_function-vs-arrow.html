@@ -32,6 +32,8 @@
 
     <script>
       class Car {
+        name = 'John';
+
         fun3() {
           console.log('💨From obj2.fun3 -----');
           console.log('function', this);
@@ -40,6 +42,7 @@
         fun4 = () => {
           console.log('💨From obj2.fun4 -----');
           console.log('arrow', this); // objとは違い、classの場合、Car になる。
+          console.log('arrow', this.name);
         };
       }
 
@@ -55,6 +58,8 @@
       const fn2 = car.fun4;
       fn1(); // undefined
       fn2(); // car
+
+      // arrowを使えば呼ばれ方に左右されなくなるのがポイント。
     </script>
   </body>
 </html>
