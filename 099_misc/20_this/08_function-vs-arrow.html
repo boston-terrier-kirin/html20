@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj1 = {
+        name: 'obj1',
+        fun1: function () {
+          console.log('💨From obj1.fun1 -----');
+          console.log('function', this);
+          console.log('function', this.name);
+        },
+        fun2: () => {
+          console.log('💨From obj2.fun2 -----');
+          console.log('arrow', this);
+          console.log('arrow', this.name);
+        },
+      };
+
+      // functionだと、thisはobj1
+      obj1.fun1();
+
+      // arrowにすると、thisはwindow ※混乱ポイント
+      obj1.fun2();
+      console.log('---------------');
+    </script>
+
+    <script>
+      class Car {
+        fun3() {
+          console.log('💨From obj2.fun3 -----');
+          console.log('function', this);
+        }
+
+        fun4 = () => {
+          console.log('💨From obj2.fun4 -----');
+          console.log('arrow', this); // objとは違い、classの場合、Car になる。
+        };
+      }
+
+      const car = new Car();
+
+      // この2つは違いなし
+      car.fun3();
+      car.fun4();
+      console.log('---------------');
+
+      // 左側をなくすと違いが出る。
+      const fn1 = car.fun3;
+      const fn2 = car.fun4;
+      fn1(); // undefined
+      fn2(); // car
+    </script>
+  </body>
+</html>

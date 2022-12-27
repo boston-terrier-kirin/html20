@@ -9,50 +9,60 @@
   <body>
     <script>
       const obj1 = {
-        name: 'obj1',
+        name: 'Kirin',
         fun1: function () {
           console.log('💨From obj1.fun1 -----');
-          console.log('function', this);
-          console.log('function', this.name);
+          console.log('obj1.fun1.this', this); // obj1
+          console.log('obj1.fun1.name', this.name);
         },
-        fun2: () => {
-          console.log('💨From obj2.fun2 -----');
-          console.log('arrow', this);
-          console.log('arrow', this.name);
+        fun2: function () {
+          console.log('💨From obj1.fun2 -----');
+          setTimeout(function () {
+            console.log('obj1.fun2.this', this); // window
+            console.log('obj1.fun2.name', this.name);
+            console.log('---------------');
+          }, 100);
+        },
+        // arrow
+        fun3: () => {
+          console.log('💨From obj1.fun3 -----');
+          console.log('obj1.fun3.this', this); // window
+          console.log('obj1.fun3.name', this.name);
+
+          // func4/5の法則を適用すると、func3はwindowになるのは
+          // わからなくもない。
+        },
+        // function + arrow
+        fun4: function () {
+          console.log('💨From obj1.fun4 -----');
+          console.log('obj1.fun4.this★', this);
+
+          setTimeout(() => {
+            // このarrowは、functionの中にいる。functionの中ではthisはobj。
+            console.log('obj1.fun4.this', this); // obj1：★時点のthisになる。fun4: functionにしているので、thisはobjになる。
+            console.log('obj1.fun4.name', this.name);
+            console.log('---------------');
+          }, 100);
+        },
+        // arrow + arrow
+        fun5: () => {
+          console.log('💨From obj1.fun5 -----');
+          console.log('obj1.fun5.this★', this);
+
+          setTimeout(() => {
+            // このarrowは、arrowの中にいる。arrowの中ではthisはwindow。
+            console.log('obj1.fun5.this', this); // window：★時点のthisになる。fun4: ()=>にしているので、thisはwindowになる。
+            console.log('obj1.fun5.name', this.name);
+            console.log('---------------');
+          }, 100);
         },
       };
 
-      // functionだと、thisはobj1
       obj1.fun1();
-
-      // arrowにすると、thisはwindow ※混乱ポイント
       obj1.fun2();
-    </script>
-
-    <script>
-      class Car {
-        fun3() {
-          console.log('💨From obj2.fun3 -----');
-          console.log('function', this);
-        }
-
-        fun4 = () => {
-          console.log('💨From obj2.fun4 -----');
-          console.log('arrow', this); // objとは違い、classの場合、Car になる。
-        };
-      }
-
-      const car = new Car();
-
-      // この2つは違いなし
-      car.fun3();
-      car.fun4();
-
-      // 左側をなくすと違いが出る。
-      const fn1 = car.fun3;
-      const fn2 = car.fun4;
-      fn1(); // undefined
-      fn2(); // car
+      obj1.fun3();
+      obj1.fun4();
+      obj1.fun5();
     </script>
   </body>
 </html>
