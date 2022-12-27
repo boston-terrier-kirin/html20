@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // use strict の場合、thisはundefinedになっている。
+      'use strict';
+
+      var name = 'global';
+
+      const fun1 = function () {
+        const name = 'fun1';
+        console.log('💨From fun1 -----');
+        console.log(this);
+        console.log(this.name);
+      };
+
+      fun1();
+    </script>
+  </body>
+</html>

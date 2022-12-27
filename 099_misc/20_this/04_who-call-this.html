@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var name = 'global';
+
+      const obj1 = {
+        name: 'obj1',
+        fun1: function () {
+          console.log('💨From obj1.fun1 -----');
+          console.log(this);
+          console.log(this.name);
+        },
+      };
+
+      const obj2 = {
+        name: 'obj2',
+        fun2: obj1.fun1,
+      };
+
+      // 左側はobj2なので、obj1.fun1が呼ばれても、
+      // thisはobj2になっている。
+      obj2.fun2();
+
+      // 左側がないので、thisはwindowになる。
+      const fn = obj2.fun2;
+      fn();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const test = {
+        checkThis: function () {
+          console.log('checkThis', this);
+
+          function checkOther() {
+            // 通常開発している場合、use strict になっているので、
+            // this.nameはundefinedでエラーになる。
+            this.name = 'Hello';
+            console.log('checkOther', this);
+          }
+
+          // 左側がないのでwindowになる。
+          checkOther();
+
+          // 左側がないのでwindowになり、window.nameになっている。
+          console.log('this.name', this.name);
+          console.log('window.name', window.name);
+        },
+      };
+
+      test.checkThis();
+      console.log('---------------');
+    </script>
+
+    <script>
+      // selfで解決する
+      const test2 = {
+        checkThis: function () {
+          var self = this;
+          console.log('checkThis', self);
+
+          function checkOther() {
+            self.name = 'Hello';
+            console.log('checkOther', self);
+          }
+
+          checkOther();
+          console.log('this.name', self.name);
+        },
+      };
+
+      test2.checkThis();
+    </script>
+  </body>
+</html>
