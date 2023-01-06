@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log('💨💨💨💨💨START');
+      function doAsyncTask(fn) {
+        setTimeout(() => {
+          // callbackのエラー処理を統一しようとして、errが先頭になったらしい。
+          fn(null, 'done');
+        }, 0);
+      }
+
+      doAsyncTask((err, result) => {
+        if (err) {
+          throw err;
+        }
+        console.log(message, result);
+      });
+
+      // setTimeoutを使っているので、doAsyncTaskは後回しになって、messageをここで宣言してもエラーにならない。
+      const message = 'Callback Called';
+    </script>
+
+    <script>
+      function doAsyncTask2(fn) {
+        return Promise.resolve('done');
+      }
+
+      doAsyncTask2().then(() => {
+        console.log(message2);
+      });
+
+      // Promise.resolveを使っているので、doAsyncTask2は後回しになって、message2をここで宣言してもエラーにならない。
+      const message2 = '[message2]Promise Resolved';
+    </script>
+
+    <script>
+      async function doAsyncTask3(fn) {
+        return 'done';
+      }
+
+      doAsyncTask3().then(() => {
+        console.log(message3);
+      });
+
+      // Promise.resolveを使っているので、doAsyncTask2は後回しになって、message2をここで宣言してもエラーにならない。
+      const message3 = '[message3]Promise Resolved';
+
+      console.log('💨💨💨💨💨END');
+    </script>
+  </body>
+</html>

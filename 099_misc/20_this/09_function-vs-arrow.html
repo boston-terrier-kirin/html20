@@ -18,7 +18,7 @@
         fun2: function () {
           console.log('💨From obj1.fun2 -----');
           setTimeout(function () {
-            console.log('obj1.fun2.this', this); // window
+            console.log('obj1.fun2.this', this); // window：callbackの場合、左側がないのでwindowになってしまう。
             console.log('obj1.fun2.name', this.name);
             console.log('---------------');
           }, 100);
@@ -29,10 +29,10 @@
           console.log('obj1.fun3.this', this); // window
           console.log('obj1.fun3.name', this.name);
 
-          // func4/5の法則を適用すると、func3はwindowになるのは
+          // func4/5の法則を適用すると、func3がwindowになるのは
           // わからなくもない。
 
-          // アロー関数自身は this を持ちません。 レキシカルスコープの this 値を使います。
+          // アロー関数自身は this を持ちません。 レキシカルスコープ(where it is written)の this 値を使います。
           // つまり、アロー関数内の this 値は通常の変数検索ルールに従います。
           // このためスコープに this 値がない場合、その一つ外側のスコープで this 値を探します。
         },

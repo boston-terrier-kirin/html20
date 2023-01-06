@@ -22,6 +22,9 @@ const euroWings = {
 // func.call(thisArg, arg1, arg2, ...)
 // func.apply(thisArg, [argsArray])
 
+// callとapplyは呼び出した時点で関数が実行されるのに対して、
+// bindは新しい関数が戻ってくる。
+
 console.log('----- call -----');
 // bookのthisをeuroWingsに指定することができる。
 const book = lufthansa.book;

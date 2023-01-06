@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      async function myFunc() {
+        return 'Hello';
+      }
+
+      // これはPromiseが返ってくる
+      console.log('myFunc: ', myFunc());
+
+      myFunc().then((res) => {
+        console.log('myFunc:resolved ', res);
+      });
+
+      //////////
+
+      function myFunc2() {
+        const promise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve('Hello');
+          }, 1000);
+        });
+
+        return promise;
+      }
+
+      // これはPromiseが返ってくる
+      console.log('myFunc2: ', myFunc2());
+
+      myFunc2().then((res) => {
+        console.log('myFunc2:resolved', res);
+      });
+
+      //////////
+
+      async function getUsers() {
+        const res = await fetch('https://jsonplaceholder.typicode.com/users');
+        const data = await res.json();
+
+        return data;
+      }
+
+      // これもPromiseが返ってくる。
+      console.log('getUsers', getUsers());
+
+      getUsers().then((data) => console.log('getUsers():resolved', data));
+    </script>
+  </body>
+</html>

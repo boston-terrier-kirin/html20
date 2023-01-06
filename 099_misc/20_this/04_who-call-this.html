@@ -14,23 +14,41 @@
         name: 'obj1',
         fun1: function () {
           console.log('💨From obj1.fun1 -----');
-          console.log(this);
-          console.log(this.name);
+          console.log('this', this);
+          console.log('this.name', this.name);
         },
       };
 
-      const obj2 = {
-        name: 'obj2',
-        fun2: obj1.fun1,
-      };
-
-      // 左側はobj2なので、obj1.fun1が呼ばれても、
-      // thisはobj2になっている。
-      obj2.fun2();
+      // 左側があるので、thisはobj1になる。
+      obj1.fun1();
+      console.log('---------------');
 
       // 左側がないので、thisはwindowになる。
-      const fn = obj2.fun2;
-      fn();
+      const fn1 = obj1.fun1;
+      fn1();
+      console.log('---------------');
+    </script>
+
+    <script>
+      class Cls1 {
+        constructor() {
+          this.name = 'John';
+        }
+
+        fun2() {
+          console.log('💨From Cls1.fun2 -----');
+          console.log('this', this);
+          console.log('this.name', this.name);
+        }
+      }
+
+      const cls1 = new Cls1();
+      cls1.fun2();
+      console.log('---------------');
+
+      // classの場合は、thisがundefinedになってしまう。
+      const fun2 = cls1.fun2;
+      fun2();
     </script>
   </body>
 </html>
