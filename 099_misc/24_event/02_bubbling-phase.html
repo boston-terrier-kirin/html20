@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #eff6ff;
+      }
+      .item {
+        padding: 2rem;
+      }
+      .first {
+        background-color: #bfdbfe;
+      }
+      .second {
+        margin-top: 2rem;
+        background-color: #60a5fa;
+      }
+      .third {
+        background-color: #2563eb;
+      }
+      button {
+        color: #fff;
+        background-color: #1e40af;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+      button:hover {
+        transform: translateY(-2px);
+      }
+      button:active {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="item">
+    <div class="first item">
+      <button id="button1">Click Me 1!</button>
+      <div class="second item">
+        <div class="third item">
+          <button id="button2">Click Me 2!</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const first = document.querySelector('.first');
+      const button1 = document.querySelector('#button1');
+      const second = document.querySelector('.second');
+      const third = document.querySelector('.third');
+      const button2 = document.querySelector('#button2');
+
+      // defaultはbubbling phase。
+      first.addEventListener('click', () => console.log('first'));
+      button1.addEventListener('click', () => console.log('button1'));
+      second.addEventListener('click', () => console.log('second'));
+      third.addEventListener('click', () => console.log('third'));
+      button2.addEventListener('click', () => console.log('button2'));
+    </script>
+  </body>
+</html>

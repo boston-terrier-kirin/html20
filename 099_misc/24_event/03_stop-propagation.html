@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #eff6ff;
+      }
+      .item {
+        padding: 2rem;
+      }
+      .first {
+        background-color: #bfdbfe;
+      }
+      .second {
+        background-color: #60a5fa;
+      }
+      .third {
+        background-color: #2563eb;
+      }
+      button {
+        color: #fff;
+        background-color: #1e40af;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+      button:hover {
+        transform: translateY(-2px);
+      }
+      button:active {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="item">
+    <div class="first item">
+      <div class="second item">
+        <div class="third item">
+          <button>Click Me!</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const first = document.querySelector('.first');
+      const second = document.querySelector('.second');
+      const third = document.querySelector('.third');
+      const button = document.querySelector('button');
+
+      first.addEventListener('click', () => console.log('first'));
+      second.addEventListener('click', () => console.log('second'));
+      third.addEventListener('click', () => console.log('third'));
+
+      // 親のlistenerが反応して困る場合、stopPropagationする。
+      button.addEventListener('click', (event) => {
+        console.log('button');
+        event.stopPropagation();
+      });
+    </script>
+  </body>
+</html>
