@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=scr, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      {
+        var foo = [];
+        for (var i = 0; i < 10; i++) {
+          foo[i] = function () {
+            return i;
+          };
+        }
+        console.log(foo[0]());
+        console.log(foo[1]());
+        console.log(foo[2]());
+        console.log('---------------');
+      }
+
+      {
+        // letにすると結果が変わる
+        // https://qiita.com/xu1718191411/items/88dee669da14bc8ba749
+        var foo = [];
+        for (let i = 0; i < 10; i++) {
+          foo[i] = function () {
+            return i;
+          };
+        }
+        console.log(foo[0]());
+        console.log(foo[1]());
+        console.log(foo[2]());
+        console.log('---------------');
+      }
+    </script>
+  </body>
+</html>
