@@ -9,19 +9,21 @@
   <body>
     <script>
       const func1 = async () => {
-        console.log('func1');
+        return 'func1';
       };
 
       const func2 = async () => {
-        console.log('func2');
+        return 'func2';
       };
 
       const main = async () => {
-        func1();
-        func2();
+        const fn1 = await func1();
+        console.log(fn1);
+
+        const fn2 = await func2();
+        console.log(fn2);
       };
 
-      // asyncをつけただけでは、非同期にならない。
       console.log('start');
       main();
       console.log('Finished');
