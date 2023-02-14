@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const num = 0;
+
+      // Logical OR は、0を見てくれない。 -> empty
+      console.log('Logical OR', num || 'empty');
+
+      // Nullish coalescing は、0を見てくれる。 -> 0
+      console.log('Nullish coalescing', num ?? 'empty');
+
+      const firstName = undefined;
+      const lastName = null;
+
+      console.log('Nullish coalescing', firstName ?? 'John');
+      console.log('Nullish coalescing', lastName ?? 'Doe');
+    </script>
+  </body>
+</html>
