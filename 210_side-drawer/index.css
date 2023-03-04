@@ -1,0 +1,172 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  padding: 0 1rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .left {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.navbar .right {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .right a {
+  text-decoration: none;
+  color: #000;
+}
+
+.navbar .right a:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+.navbar .right img {
+  width: 24px;
+  height: 24px;
+}
+
+.navbar .hamburger {
+  display: none;
+  height: 50px;
+  width: 50px;
+
+  cursor: pointer;
+}
+
+.navbar .hamburger .bar1,
+.navbar .hamburger .bar2,
+.navbar .hamburger .bar3 {
+  background-color: #000;
+  height: 4px;
+  width: 36px;
+  margin: 3px;
+  border-radius: 10px;
+}
+
+.mobileNav {
+  width: 80px;
+  height: 100vh;
+  background-color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  position: fixed;
+  top: 0;
+  right: -160px;
+  z-index: 2;
+  opacity: 0.9;
+
+  transition: all 0.3s;
+}
+
+.openDrawer {
+  transform: translateX(-160px);
+}
+
+.mobileNav a {
+  text-decoration: none;
+  color: #000;
+}
+
+.mobileNav a:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+.mobileNav img {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+
+  .navbar {
+    background-color: #fff;
+    width: 100%;
+    padding: 8px 15px 0 24px;
+    box-sizing: border-box;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  .navbar .right {
+    display: none;
+  }
+
+  .navbar .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content {
+    margin-top: 56.57px;
+  }
+}
+
+.hamburger .animateBar1 {
+  animation: flipBar1 0.3s;
+  animation-fill-mode: forwards;
+}
+.hamburger .animateBar2 {
+  animation: fadeBar2 0.3s;
+  animation-fill-mode: forwards;
+}
+.hamburger .animateBar3 {
+  animation: flipBar3 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes flipBar1 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(45deg) translate(4px, 10px);
+  }
+}
+
+@keyframes fadeBar2 {
+  from {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  to {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+}
+
+@keyframes flipBar3 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-45deg) translate(4px, -10px);
+  }
+}
