@@ -22,4 +22,10 @@ const mary = new Person('Mary', 'Johnson', 'March 20 1978');
  */
 console.log(john.getFullName());
 console.log(john.calculateAge());
+
+// calculateAgeとgetFullNameは、john/maryではなくprototypeに属している。
 console.log(john);
+console.log(mary);
+
+// 実体は1つなのでtrueになる。
+console.log(john.getFullName === mary.getFullName);
