@@ -8,15 +8,16 @@
   </head>
   <body>
     <script>
-      // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const
-      // グローバルな定数は var 変数とは異なり、window オブジェクトのプロパティにはなりません。
-      const name = 'global';
+      // use strict の場合、thisはundefinedになっている。
+      'use strict';
+
+      var name = 'global';
 
       const fun1 = function () {
         const name = 'fun1';
         console.log('💨From fun1 -----');
-        console.log(this);
-        console.log(this.name);
+        console.log('this', this);
+        console.log('this.name', this.name);
       };
 
       fun1();
